@@ -1,0 +1,12 @@
+[Unit]
+Description=Cow says moo
+After=network.target
+
+[Service]
+User=nginx
+WorkingDirectory=/var/www/cowsay.tbmh.org
+ExecStart=/usr/local/bin/gunicorn -b localhost:8000 -w 4 cowsay:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
