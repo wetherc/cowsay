@@ -44,3 +44,7 @@ def index():
     chunks = '\n'.join(chunks)
 
     return render_template('index.html', fortune=chunks)
+
+
+if __name__ == '__main__':
+    application.run(host='127.0.0.1')
