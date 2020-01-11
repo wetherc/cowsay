@@ -5,4 +5,5 @@ systemctl daemon-reload
 systemctl restart cowsay
 
 cp cowsay.tbmh.org.conf /etc/nginx/conf.d/cowsay.tbmh.org.conf
-nginx reload
+nginx -t
+systemctl reload nginx
