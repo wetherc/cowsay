@@ -24,7 +24,6 @@ def index():
                 _chunk = _chunk.lstrip()
                 _chunk = _chunk + ' ' * (38 - len(_chunk))
                 chunks.append(_chunk)
-                _chunk = word
 
             if idx == (len(_words) - 1):
                 _chunk = ' '.join([_chunk, word])
