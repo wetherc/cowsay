@@ -11,6 +11,12 @@ app = Flask(__name__)
 with open(APP_ROOT / 'phrases.txt', 'r') as f:
     fortunes = [fortune.strip() for fortune in f]
 
+COW = """        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\\
+                ||----w |
+                ||     ||
+"""
 
 @app.route('/')
 def index():
@@ -43,6 +49,11 @@ def index():
         chunks[-1] = '\\ ' + chunks[-1] + ' /'
     chunks = '\n'.join(chunks)
 
+    if 'curl' in request.headers.get('User-Agent'):
+        cow =  f' {"_" * 40}' + '\n' + chunks + '\n' + f' {"-" * 40}' + '\n'
+        cow += COW
+
+        return cow
     return render_template('index.html', fortune=chunks)
 
 
